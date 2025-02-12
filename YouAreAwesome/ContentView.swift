@@ -26,31 +26,26 @@ struct ContentView: View {
             
             Spacer()
             
-            HStack {
-                Button("Awesome!") {
-                    message = "Awesome!"
-                }
-                .buttonStyle(.borderedProminent)
-                .font(.title2)
-                .tint(.orange)
-                .foregroundStyle(.white)
-                
-                
-                Button("Great!") {
-                    message = "Great!"
-                }
-                .buttonStyle(.borderedProminent)
-                .font(.title2)
-                .tint(.orange)
-                .foregroundStyle(.white)
-                
+            
+            Button("Awesome!") {
+                message = "Awesome!"
             }
+            .buttonStyle(.borderedProminent)
+            .font(.title2)
+            .tint(.orange)
+            .foregroundStyle(.white)
+            
+            
+            
             
             
         }
-        .padding()
-    }
-}
+        
+        
+    
+    
+    
+
 
 #Preview {
     ContentView()
