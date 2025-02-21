@@ -8,44 +8,62 @@
 import SwiftUI
 
 struct ContentView: View {
-    @State private var message = "I am a programmer!"
+    @State private var message = ""
+    @State private var imageName = ""
+    @State private var imageNumber = 0
+    @State private var messageNumber = 0
+    
     var body: some View {
         VStack {
             Spacer()
             
-            Image(systemName: "swift")
+            Image(imageName)
                 .resizable()
                 .scaledToFit()
-                .foregroundStyle(.orange)
-                .frame(width: 200, height: 200)
+                .clipShape(RoundedRectangle(cornerRadius: 30))
+                .shadow(radius: 30)
             
             Text(message)
                 .font(.largeTitle)
-                .fontWeight(.ultraLight)
-                .foregroundStyle(.black)
-            
+                .fontWeight(.heavy)
+                .foregroundStyle(.red)
+                . multilineTextAlignment(.center)
             Spacer()
             
             
-            Button("Awesome!") {
-                message = "Awesome!"
+            Button("Show Message") {
+                let messages = ["You Are Awesome!", "You Are Great!", "You Are Fantastic!", "Fabulous? That's You!", "You Make Me Smile!", "When The Genius Bar Needs Help, They Call You"]
+                
+                
+                
+//                message = ( message == message1 ? message2 : message1 )
+//                imageName = ( imageName == "image0" ? "image1" : "image0")
+                
+                message = messages[messageNumber]
+                messageNumber += 1
+                if messageNumber == messages.count {
+                    messageNumber = 0
+                }
+                
+                imageName = "image\(imageNumber)"
+//               imageNumber = imageNumber + 1
+                imageNumber += 1
+                
+                if imageNumber > 9 {
+                    imageNumber = 0
+                }
+                
+                print(imageNumber)
             }
             .buttonStyle(.borderedProminent)
             .font(.title2)
-            .tint(.orange)
-            .foregroundStyle(.white)
-            
-            
             
             
             
         }
-        
-        
-    
-    
-    
-
+        .padding()
+    }
+}
 
 #Preview {
     ContentView()
